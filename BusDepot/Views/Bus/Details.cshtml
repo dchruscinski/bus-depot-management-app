@@ -1,0 +1,121 @@
+﻿@model BusDepot.Models.Bus
+
+@{
+    ViewBag.Title = "Bus details";
+}
+
+<h2>Vehicle details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Side number")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SideNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Is vehicle functional?")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFunctional)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Car registration")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarRegistration)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Model and make")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarModelAndMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine capacity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine power")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnginePower)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Emission standard")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmissionStandard)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Transmission make and type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransmissionMakeAndType)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Number of standing places")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfStandingPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Number of seats")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Registration date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleID }) |
+    @Html.ActionLink("Back to buses list", "Index")
+</p>

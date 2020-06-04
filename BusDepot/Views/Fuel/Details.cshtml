@@ -1,0 +1,41 @@
+﻿@model BusDepot.Models.Fuel
+
+@{
+    ViewBag.Title = "Fuel type details";
+}
+
+<h2>Fuel type details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Fuel type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tank ID")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankID)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Amount of fuel")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOfFuel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FuelID }) |
+    @Html.ActionLink("Back to fuel list", "Index")
+</p>

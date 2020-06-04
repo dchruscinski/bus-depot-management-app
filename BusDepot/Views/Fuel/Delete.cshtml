@@ -1,0 +1,47 @@
+﻿@model BusDepot.Models.Fuel
+
+@{
+    ViewBag.Title = "Delete fuel type";
+}
+
+<h2>Delete fuel type</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Fuel type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tank ID")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankID)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Amount of fuel")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOfFuel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to fuel types list", "Index")
+        </div>
+    }
+</div>

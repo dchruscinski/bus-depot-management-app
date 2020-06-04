@@ -1,0 +1,55 @@
+﻿@model BusDepot.Models.Item
+
+@{
+    ViewBag.Title = "Delete item";
+}
+
+<h2>Delete item</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Item name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Warehouse sector")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Availability")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfItems)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Notes")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemNotes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to item list", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,72 @@
+﻿@model BusDepot.Models.RefuelReport
+
+@{
+    ViewBag.Title = "Delete refuel report";
+}
+
+<h2>Delete refuel report</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Employee")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fuel type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fuel.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vehicle")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.FullIdentificator)
+            @Html.DisplayFor(model => model.Bus.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Amount of taken fuel")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOfTakenFuel)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Refuel date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefuelDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Notes")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefuelReportNotes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to refuel reports list", "Index")
+        </div>
+    }
+</div>

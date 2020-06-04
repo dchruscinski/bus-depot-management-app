@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BusDepot.Models.Fuel>
+
+@{
+    ViewBag.Title = "Petrol station";
+}
+
+<h2>Petrol station</h2>
+
+<p>
+    @Html.ActionLink("Add new fuel type", "Create") |
+    @Html.ActionLink("View refuel reports", "Index", "RefuelReport")
+</p>
+
+<p>
+    Find by fuel type: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Fuel type")
+        </th>
+        <th>
+            @Html.DisplayName("Tank ID")
+        </th>
+        <th>
+            @Html.DisplayName("Amount of fuel")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountOfFuel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.FuelID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.FuelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.FuelID })
+        </td>
+    </tr>
+}
+
+</table>

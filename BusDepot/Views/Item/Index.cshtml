@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BusDepot.Models.Item>
+
+@{
+    ViewBag.Title = "Warehouse";
+}
+
+<h2>Warehouse</h2>
+
+<p>
+    @Html.ActionLink("Add new item", "Create") |
+    @Html.ActionLink("View withdraw reports", "Index", "WithdrawItemReport")
+</p>
+
+<p>
+    Find by name: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Item name")
+        </th>
+        <th>
+            @Html.DisplayName("Warehouse sector")
+        </th>
+        <th>
+            @Html.DisplayName("Availability")
+        </th>
+        <th>
+            @Html.DisplayName("Notes")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfItems)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemNotes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
+        </td>
+    </tr>
+}
+
+</table>

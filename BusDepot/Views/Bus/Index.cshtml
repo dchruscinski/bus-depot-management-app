@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BusDepot.Models.Bus>
+
+@{
+    ViewBag.Title = "Fleet: buses";
+}
+
+<h2>Fleet: buses</h2>
+
+<p>
+    @Html.ActionLink("Add new bus", "Create") |
+    @Html.ActionLink("View cars fleet", "Index", "Car")
+</p>
+
+<p>
+    Find by side number: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Side number")
+        </th>
+        <th>
+            @Html.DisplayName("Functionality")
+        </th>
+        <th>
+            @Html.DisplayName("Car registration")
+        </th>
+        <th>
+            @Html.DisplayName("Model and make")
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SideNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFunctional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarRegistration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarModelAndMake)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehicleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VehicleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehicleID })
+        </td>
+    </tr>
+}
+
+</table>

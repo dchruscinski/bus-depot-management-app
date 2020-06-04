@@ -1,0 +1,66 @@
+﻿@model BusDepot.Models.WithdrawItemReport
+
+@{
+    ViewBag.Title = "Withdraw item report details";
+}
+
+<h2>Withdraw item report details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Employee")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Item")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vehicle")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.FullIdentificator)
+            @Html.DisplayFor(model => model.Bus.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Number of taken items")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfTakenItems)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Withdraw date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WithdrawItemDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Notes")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WithdrawItemReportNotes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WithdrawItemReportID }) |
+    @Html.ActionLink("Back to withdraw item reports list", "Index")
+</p>

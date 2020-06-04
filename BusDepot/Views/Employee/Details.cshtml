@@ -1,0 +1,152 @@
+﻿@model BusDepot.Models.Employee
+
+@{
+    ViewBag.Title = "Employee details";
+}
+
+<h2>Employee details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("First name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Last name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Position")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Permission level")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermissionLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("E-mail")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Phone number")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <br />
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Date the item was taken</th>
+                    <th>Item name</th>
+                    <th>Number of taken items</th>
+                    <th>Vehicle side humber</th>
+                </tr>
+                @foreach (var item in Model.WithdrawItemReports)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WithdrawItemDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfTakenItems)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Car.SideNumber)
+                        @Html.DisplayFor(modelItem => item.Bus.SideNumber)
+                    </td>
+                </tr>
+                }
+            </table>
+        </dd>
+
+        <br />
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Date of sumbiting repair report</th>
+                    <th>Vehicle side number</th>
+                    <th>Notes</th>
+                </tr>
+                @foreach (var item in Model.RepairReports)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RepairDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Car.SideNumber)
+                            @Html.DisplayFor(modelItem => item.Bus.SideNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RepairReportNotes)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+
+        <br />
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Date of refueling</th>
+                    <th>Vehicle side number</th>
+                    <th>Amount of fuel taken</th>
+                </tr>
+                @foreach (var item in Model.RefuelReports)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RefuelDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Car.SideNumber)
+                            @Html.DisplayFor(modelItem => item.Bus.SideNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountOfTakenFuel)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+    @Html.ActionLink("Back to employees list", "Index")
+</p>

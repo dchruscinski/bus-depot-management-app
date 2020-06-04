@@ -1,0 +1,97 @@
+﻿@model BusDepot.Models.Car
+
+@{
+    ViewBag.Title = "Car details";
+}
+
+<h2>Car details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Side number")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SideNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Is vehicle functional?")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFunctional)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Car registration")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarRegistration)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Model and make")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarModelAndMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine capacity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Engine power")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnginePower)
+        </dd>
+                
+        <dt>
+            @Html.DisplayName("Registration date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Depot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Depot)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleID }) |
+    @Html.ActionLink("Back to cars list", "Index")
+</p>

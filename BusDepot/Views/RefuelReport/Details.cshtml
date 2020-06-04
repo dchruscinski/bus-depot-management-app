@@ -1,0 +1,66 @@
+﻿@model BusDepot.Models.RefuelReport
+
+@{
+    ViewBag.Title = "Refuel report details";
+}
+
+<h2>Refuel report details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Employee name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fuel type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fuel.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vehicle")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.FullIdentificator)
+            @Html.DisplayFor(model => model.Bus.FullIdentificator)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Amount of taken fuel")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOfTakenFuel)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Refuel date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefuelDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Notes")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefuelReportNotes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RefuelReportID }) |
+    @Html.ActionLink("Back to refuel reports list", "Index")
+</p>

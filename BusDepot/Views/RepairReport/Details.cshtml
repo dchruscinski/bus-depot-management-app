@@ -1,0 +1,84 @@
+﻿@model BusDepot.Models.RepairReport
+
+@{
+    ViewBag.Title = "Repair report details";
+}
+
+<h2>Repair report details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("First name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Last name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Side number")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.SideNumber)
+            @Html.DisplayFor(model => model.Bus.SideNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Repair date time")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepairDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Notes")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepairReportNotes)
+        </dd>
+
+        </br>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Date of submitting the report</th>
+                    <th>Item name</th>
+                    <th>Number of taken items</th>
+                </tr>
+                @foreach (var item in Model.WithdrawItemReports)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WithdrawItemDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfTakenItems)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RepairReportID }) |
+    @Html.ActionLink("Back to repair reports list", "Index")
+</p>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BusDepot.Models.RefuelReport>
+
+@{
+    ViewBag.Title = "Refuel reports list";
+}
+
+<h2>Refuel reports list</h2>
+
+<p>
+    @Html.ActionLink("Back to the fuel list", "Index", "Fuel") |
+    @Html.ActionLink("Create new refuel report", "Create")
+</p>
+
+<p>
+    Find by name: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("First name")
+        </th>
+        <th>
+            @Html.DisplayName("Last name")
+        </th>
+        <th>
+            @Html.DisplayName("Fuel type")
+        </th>
+        <th>
+            @Html.DisplayName("Vehicle side number")
+        </th>
+        <th>
+            @Html.DisplayName("Amount of taken fuel")
+        </th>
+        <th>
+            @Html.DisplayName("Refuel date")
+        </th>
+        <th>
+            @Html.DisplayName("Notes")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fuel.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bus.SideNumber)
+            @Html.DisplayFor(modelItem => item.Car.SideNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountOfTakenFuel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefuelDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefuelReportNotes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RefuelReportID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RefuelReportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RefuelReportID })
+        </td>
+    </tr>
+}
+
+</table>

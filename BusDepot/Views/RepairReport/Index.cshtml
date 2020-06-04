@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BusDepot.Models.RepairReport>
+
+@{
+    ViewBag.Title = "Repair reports list";
+}
+
+<h2>Repair reports list</h2>
+
+<p>
+    @Html.ActionLink("Create new repair report", "Create")
+</p>
+
+<p>
+    Find by name: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Date of repair")
+        </th>
+        <th>
+            @Html.DisplayName("Vehicle side number")
+        </th>
+        <th>
+            @Html.DisplayName("Employee first name")
+        </th>
+        <th>
+            @Html.DisplayName("Employee last name")
+        </th>
+        <th>
+            @Html.DisplayName("Repair notes")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepairDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car.SideNumber)
+            @Html.DisplayFor(modelItem => item.Bus.SideNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepairReportNotes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RepairReportID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RepairReportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RepairReportID })
+        </td>
+    </tr>
+}
+
+</table>
